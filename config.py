@@ -10,6 +10,10 @@ LLM_MODEL = "qwen-max"
 EMBEDDING_MODEL = "text_embedding_v3"
 
 # 存储配置
+CHROMA_PERSIST_DIR = "./chroma_persist"
+REDIS_URL = "redis://localhost:6379/0"
+
+# MYSQL配置
 MYSQL_HOST = "localhost"
 MYSQL_USER = "root"
 MYSQL_PASSWORD = "qwe123"
