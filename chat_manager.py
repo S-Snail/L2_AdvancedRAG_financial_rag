@@ -10,6 +10,7 @@ class ChatManager:
         self.memory_k = MEMORY_WINDOW
 
     def get_history(self, session_id: str):
+        """获取Redis对话历史"""
         return RedisChatMessageHistory(
             session_id=session_id,
             url=REDIS_URL,
