@@ -2,6 +2,8 @@ import os
 
 from langchain_community.document_compressors import DashScopeRerank
 
+from config import RERANK_MODEL
+
 ALI_TONGYI_EMBEDDING = "text-embedding-v3"
 ALI_TONGYI_API_KEY_SYSVAR_NAME = "DASHSCOPE_API_KEY"
 
@@ -14,8 +16,9 @@ def get_ali_rerank(top_n=5):
     :param top_n:
     :return: 阿里通义千问嵌入模型的实例
     '''
-    return DashScopeRerank(
-        model=ALI_TONGYI_EMBEDDING,
+    rerank = DashScopeRerank(
         dashscope_api_key=os.getenv(ALI_TONGYI_API_KEY_SYSVAR_NAME),
         top_n=top_n
     )
+    rerank.model = RERANK_MODEL
+    return rerank

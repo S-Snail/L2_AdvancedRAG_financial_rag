@@ -46,7 +46,7 @@ class DocumentProcessor:
         docs = []
         doc = fitz.open(file_path)
         for page_num, page in enumerate(doc):
-            text = page.getText()
+            text = page.get_text()
             # 提取表格
             try:
                 tables = page.find_tables()

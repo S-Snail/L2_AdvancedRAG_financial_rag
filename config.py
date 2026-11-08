@@ -7,7 +7,8 @@ load_dotenv()
 # 大模型配置
 DASHSCOPE_API_KEY = os.getenv("DASHSCOPE_API_KEY")
 LLM_MODEL = "qwen-max"
-EMBEDDING_MODEL = "text_embedding_v3"
+EMBEDDING_MODEL = "text-embedding-v3"
+RERANK_MODEL = "qwen3-rerank"
 
 # 存储配置
 CHROMA_PERSIST_DIR = "./chroma_persist"

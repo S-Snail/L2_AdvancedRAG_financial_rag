@@ -114,7 +114,9 @@ class RAGChain:
         response = self.rag_chain.stream(
             {"input": question,
              "context": context,
-             "chat_history": session_id})
+             "chat_history": []},
+            config={"configurable": {"session_id": session_id}}
+        )
         return response, citations
 
 
