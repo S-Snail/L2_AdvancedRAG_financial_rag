@@ -106,7 +106,7 @@ def chat_response(kb_name, message, history):
 
     full_answer = ""
     try:
-        # 调用带饮用的方法
+        # 调用带引用的方法
         resp_gen, citations = rag_chain.chat_with_citations(kb_id, SESSION_ID, message)
         for chunk in resp_gen:
             full_answer += str(chunk)
