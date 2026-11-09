@@ -148,7 +148,7 @@ with gr.Blocks(title="金融文档智能问答助手") as demo:
             refresh_btn = gr.Button("刷新知识库列表")
             result_msg = gr.Textbox(label="操作结果", interactive=False, lines=3)
 
-        with gr.Column(3):
+        with gr.Column(scale=3):
             chatbot = gr.Chatbot(height=600)
             msg = gr.Textbox(label="提问", placeholder="请输入您的问题...")
             clear_btn = gr.Button("清空对话")
