@@ -68,17 +68,17 @@ class MySQLDB:
     def delete_kb(self, kb_id):
         try:
             # 先检查知识库是否存在
-            self.cursor.execute("SELECT id FROM knowledge_base WHERE id = %s", kb_id)
+            self.cursor.execute("SELECT id FROM knowledge_base WHERE id = %s", (kb_id,))
             if not self.cursor.fetchone():
                 logger.warning(f"知识库{kb_id} 不存在于MySQL中")
                 return False
 
             # 删除文档
-            self.cursor.execute("DELETE FROM documents WHERE kb_id = %s", kb_id)
+            self.cursor.execute("DELETE FROM documents WHERE kb_id = %s", (kb_id,))
             doc_deleted = self.cursor.rowcount
 
             # 删除知识库
-            self.cursor.execute("DELETE FROM knowledge WHERE id = %s", kb_id)
+            self.cursor.execute("DELETE FROM knowledge_base WHERE id = %s", (kb_id,))
             kb_deleted = self.cursor.rowcount
             self.conn.commit()
             logger.info(f"删除 MYSQL 记录：知识库 {kb_deleted} 条，文档 {doc_deleted} 条")
